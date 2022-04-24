@@ -54,8 +54,8 @@ def getlocation(address):
 
 
 def drawmap(origin,destination,weight1,weight2,weight3):
-    gdf_nodes = gpd.read_file(r"/utils/nodesandedges/nodes.shp").set_index('osmid')
-    gdf_edges = gpd.read_file(r"/utils/unodesandedges/final_safety.shp").set_index(['u', 'v', 'key'])
+    gdf_nodes = gpd.read_file(r"utils/nodesandedges/nodes.shp").set_index('osmid')
+    gdf_edges = gpd.read_file(r"utils/nodesandedges/final_safety.shp").set_index(['u', 'v', 'key'])
     score = gdf_edges['score'].values  # returns a numpy array
     min_max_scaler = preprocessing.MinMaxScaler()
     score_scaled = min_max_scaler.fit_transform(score.reshape(-1, 1))
